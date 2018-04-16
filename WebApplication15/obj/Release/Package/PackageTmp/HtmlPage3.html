@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Bot Chat</title>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!--タブの作成-->
+    <p id="tabcontrol">
+        <a href="#tabpage1">Overview</a>
+        <a href="#tabpage2">Logdatas</a>
+        <a href="#tabpage3">Chart</a>
+        <a href="#tabpage4">rayout</a>
+        <a href="#tabpage5">bot</a>
+    </p>
+
+    <!--各タブの内容-->
+    <div id="tabbody">
+        <!--管理者ページ概要-->
+        <div id="tabpage1">
+            <p>あ</p>
+        </div>
+
+        <!--ログデータ-->
+        <div id="tabpage2">
+            <table border=1>
+                <tbody>
+                    <tr>
+                        <th>送信時刻</th>
+                        <th>送信者</th>
+                        <th>送信先</th>
+                        <th>送信内容</th>
+                    </tr>
+                    @foreach (var p in this.Model)
+                    {
+                    <tr>
+                        <th>@p.LocalTimestamp</th>
+                        <th>@p.Transmitter</th>
+                        <th>@p.Receiver</th>
+                        <th>@p.Contents</th>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!--解析データ-->
+        <div id="tabpage3">…… タブ3の中身 ……</div>
+
+
+
+        <div id="tabpage4">
+
+            <script>
+                function changeBoxColor(newColor) {
+                    document.getElementById('as-pe').style.backgroundColor = newColor;
+                }
+
+            </script>
+
+
+            <p id="as-pe">
+
+                あすぺ
+            </p>
+
+
+
+
+            <p>
+                背景色を…
+                <input type="button" value="緑色に変更する" onclick="changeBoxColor('#008000');">
+                <input type="button" value="青色に変更する" onclick="changeBoxColor('#0000ff');">
+                <input type="button" value="黄色に変更する" onclick="changeBoxColor('#ffff00');">
+                <input type="button" value="赤色に変更する" onclick="changeBoxColor('#ff0000');">
+                <input type="button" value="淡い緑色に戻す" onclick="changeBoxColor('#ccffcc');">
+            </p>
+
+
+        </div>
+
+
+        <!--ボット組み込み-->
+        <div id="tabpage5">
+          
+
+
+
+           あああああ
+
+
+
+
+            <script src="JavaScript.js"></script>
+            <script>
+
+                var link = document.createElement('link');
+                link.href = 'StyleSheet1.css';
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                var head = document.getElementsByTagName('head')[0];
+                head.appendChild(link);
+
+
+
+                BotChat.App({
+                    directLine: { secret: 'NkcvEFs6cp4.cwA.ggY.7HOgdY9uQ287QW8XdS1Sqj8QVSAq9cp2H8RWdKkpMmM' },
+                    user: { id: 'user' },
+                    bot: { id: 'botid' },
+                    resize: 'detect'
+                }, document.getElementById("tabpage5"));
+
+
+
+
+            </script>
+
+
+
+
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+    <!--タブ切り替えのための記述-->
+    <script type="text/javascript">
+        var tabs = document.getElementById('tabcontrol').getElementsByTagName('a');
+        var pages = document.getElementById('tabbody').getElementsByTagName('div');
+
+        function changeTab() {
+            var targetid = this.href.substring(this.href.indexOf('#') + 1, this.href.length);
+
+            for (var i = 0; i < pages.length; i++) {
+                if (pages[i].id != targetid) {
+                    pages[i].style.display = "none";
+                }
+                else {
+                    pages[i].style.display = "block";
+                }
+            }
+
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].style.zIndex = "0";
+            }
+            this.style.zIndex = "10";
+
+            return false;
+        }
+
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].onclick = changeTab;
+        }
+
+        tabs[0].onclick();
+    </script>
+
+</body>
+</html>

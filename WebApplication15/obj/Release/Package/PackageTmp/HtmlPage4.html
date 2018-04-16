@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+
+
+    <div id="bot">
+
+        ああああ
+
+        <script src="JavaScript.js"></script>
+        <script>
+           
+            var link = document.createElement('link');
+            link.href = 'StyleSheet1.css';
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+
+
+
+            BotChat.App({
+                directLine: { secret: 'NkcvEFs6cp4.cwA.ggY.7HOgdY9uQ287QW8XdS1Sqj8QVSAq9cp2H8RWdKkpMmM' },
+                user: { id: 'userid' },
+                bot: { id: 'botid' },
+                resize: 'detect'
+            }, document.getElementById("bot"));
+        
+    
+
+   
+            function changeBoxColor(newColor) {
+                document.getElementById('wc-header').style.backgroundColor = newColor;
+        }
+
+    </script>
+
+
+
+
+    <p id="">ああああ</p>
+
+
+    <p>
+        背景色を…
+        <input type="button" value="緑色に変更する" onclick="changeBoxColor('#008000');">
+        <input type="button" value="青色に変更する" onclick="changeBoxColor('#0000ff');">
+        <input type="button" value="黄色に変更する" onclick="changeBoxColor('#ffff00');">
+        <input type="button" value="赤色に変更する" onclick="changeBoxColor('#ff0000');">
+        <input type="button" value="淡い緑色に戻す" onclick="changeBoxColor('#ccffcc');">
+    </p>
+        </div>
+
+</body>
+</html>

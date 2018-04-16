@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Bot Chat</title>
+    <link href="botchat.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="BotChat"></div>
+
+    <script src="botchat.js"></script>
+
+    <script>
+        const model = {
+            "userId": "userId",
+            "userName": "You",
+            "botId": "recobot08",// 先ほど控えたbotId
+            "botIconUrl": "https://bot-framework.azureedge.net/bot-icons-v1/bot-framework-default-7.png",
+            "botName": "recobot08",// 先ほど控えたbotId
+            "secret": "Y6v2keZH_5g.cwA.f_8.LkblGp-QWkJ6A9W4IJ-1L4G41FQDgpPs6O4NbZsoY-c",// 先ほど控えたsecretKey
+            "iconUrl": "https://bot-framework.azureedge.net/bot-icons-v1/bot-framework-default-7.png",
+            "directLineUrl": "https://webchat.botframework.com/v3/directline",
+            "webSocketEnabled": "true"
+        };
+
+        BotChat.App({
+        directLine: {
+            secret: 'NkcvEFs6cp4.cwA.ggY.7HOgdY9uQ287QW8XdS1Sqj8QVSAq9cp2H8RWdKkpMmM',
+        },
+        user: {id: model.userId, name: model.userName},
+        bot: {id: model.botId, name: model.botName},
+        resize: 'detect'
+    }, document.getElementById("BotChat"));
+    </script>
+</body>
+</html>

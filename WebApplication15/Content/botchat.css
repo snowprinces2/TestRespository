@@ -1,0 +1,1352 @@
+@charset "utf-8";
+
+/* reset */
+body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 15px; }
+
+.wc-app button {
+  background-color: #0078d7;
+  border: 1px solid #cccccc;wc-header
+  border-radius: 1px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color .2s ease, background-color .2s ease; }
+
+.wc-app h1, .wc-app h2, .wc-app h3, .wc-app h4, .wc-app p, .wc-app ul, .wc-app ol {
+  margin: 0;
+  padding: 0; }
+
+.wc-app audio, .wc-app video {
+  display: block; }
+
+/* docking */
+.wc-hidden {
+  visibility: hidden; }
+
+.wc-header {
+  background-color: #808080;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.2);
+  box-sizing: content-box;
+  color: #ffffff;
+  font-weight: 500;
+  height: 30px;
+  left: 0;
+  letter-spacing: 0.5px;
+  padding: 8px 8px 0 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+   }
+
+.wc-time {
+  color: #999999;
+  margin-bottom: 10px; }
+
+.wc-message-groups {
+	/*高さ調整*/
+  bottom: 50px;
+  left: 0;
+  transform: translateY(0);
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+/*  top: 50px;*/
+top:0px;
+  height:calc(100% - 68px);
+
+  box-sizing:border-box;
+  transition: transform 0.2s cubic-bezier(0, 0, 0.5, 1); }
+  .wc-message-groups.no-header {
+    top: 0; }
+
+.wc-message-group-content {
+	    margin-top: 15px!important;
+	/*デザインカスタマイズ*/
+  /*overflow: hidden; */}
+
+.wc-suggested-actions {
+  background-color: #f9f9f9;
+  bottom: 50px;
+  height: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  transition: height 0.2s cubic-bezier(0, 0, 0.5, 1); }
+  .wc-suggested-actions .wc-hscroll > ul {
+    height: 40px;
+    padding: 2px 3px; }
+    .wc-suggested-actions .wc-hscroll > ul > li {
+      display: inline-block;
+      margin: 2px;
+      max-width: 40%; }
+      .wc-suggested-actions .wc-hscroll > ul > li button {
+        background-color: #fff;
+        color: #0078d7;
+        min-height: 32px;
+        overflow: hidden;
+        padding: 0 16px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%; }
+      .wc-suggested-actions .wc-hscroll > ul > li button:focus,
+      .wc-suggested-actions .wc-hscroll > ul > li button:hover {
+        background-color: #fff;
+        border-color: #0078d7;
+        color: #0078d7; }
+      .wc-suggested-actions .wc-hscroll > ul > li button:active {
+        background-color: #0078d7;
+        border-color: #0078d7;
+        color: #ffffff; }
+  .wc-suggested-actions button.scroll {
+    background-color: #d2dde5;
+    height: 40px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 28px; }
+  .wc-suggested-actions button.scroll:disabled {
+    display: none; }
+  .wc-suggested-actions button.scroll:focus,
+  .wc-suggested-actions button.scroll:hover {
+    background-color: #808c95; }
+  .wc-suggested-actions button.scroll svg {
+    fill: #ffffff; }
+    .wc-suggested-actions button.scroll svg path {
+      transform: translateY(6px); }
+  .wc-suggested-actions button.scroll.previous {
+    left: 0; }
+  .wc-suggested-actions button.scroll.next {
+    right: 0; }
+
+.wc-message-pane.show-actions .wc-message-groups {
+  transform: translateY(-40px); }
+
+.wc-message-pane.show-actions .wc-suggested-actions {
+  height: 40px; }
+
+/* views */
+.wc-chatview-panel {
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0; }
+
+/* messages */
+.wc-message-wrapper {
+/*
+  animation: animationFrames 2s;
+  animation-iteration-count: 1;
+*/
+  clear: both;
+  padding-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  /*transition: max-height 2s ease-in-out;*/ }
+
+/*
+@keyframes animationFrames {
+  0% {
+    /*max-height: 0;*/
+/*    opacity: 0; }
+  20% {
+    opacity: 1; }
+  100% {*/
+    /*max-height: 2000px;*/ /*} }*/
+
+.wc-message {
+  position: relative; }
+
+.wc-message-wrapper.carousel .wc-message {
+  max-width: none;
+  padding-right: 8px; }
+
+.wc-message svg.wc-message-callout {
+  height: 22px;
+  position: absolute;
+  stroke: none;
+  top: 12px;
+  width: 6px; }
+
+.wc-message-content {
+  border-radius: 2px;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  word-break: break-word; }
+
+.wc-message-content.clickable {
+  cursor: pointer; }
+
+.wc-message-content.selected {
+  box-shadow: 0px 1px 1px 0px #ffa333; }
+
+.wc-message-content img {
+  max-height: 320px;
+  max-width: 100%; }
+
+.wc-message-content .video iframe {
+  border: 0; }
+
+.wc-message-content audio, .wc-message-content video {
+  max-width: 100%; }
+
+.wc-message-content audio + h1, .wc-message-content video + h1 {
+  margin-top: 11px; }
+
+.wc-message-from {
+  clear: both;
+  color: #767676;
+  font-size: 11px;
+  margin-top: 5px; }
+
+/* cards */
+.wc-card {
+  background-color: #ffffff; }
+  .wc-card .non-adaptive-content {
+    margin: 8px 8px 0 8px; }
+  .wc-card button {
+    background-color: transparent;
+    color: #0078d7;
+    min-height: 32px;
+    width: 100%;
+    padding: 0 16px; }
+  .wc-card button:hover {
+    background-color: transparent;
+    border-color: #0078d7;
+    color: #0078d7; }
+  .wc-card button:active {
+    background-color: #0078d7;
+    border-color: #0078d7;
+    color: #ffffff; }
+  .wc-card.receipt table {
+    border-collapse: collapse;
+    width: 100%; }
+  .wc-card.receipt th, .wc-card.receipt td {
+    text-align: right;
+    vertical-align: top; }
+  .wc-card.receipt th:first-child, .wc-card.receipt td:first-child {
+    text-align: left; }
+  .wc-card.receipt th {
+    color: #808c95;
+    font-size: inherit;
+    font-weight: normal;
+    line-height: 1.75; }
+  .wc-card.receipt thead tr:last-child th {
+    padding-bottom: 16px; }
+  .wc-card.receipt th[colspan="2"] {
+    color: inherit;
+    font-size: 15px;
+    font-weight: 700; }
+  .wc-card.receipt td {
+    padding: 4px 8px 0 8px; }
+  .wc-card.receipt td img {
+    float: left;
+    margin: 5px 8px 8px 0;
+    max-height: 50px;
+    max-width: 50px; }
+  .wc-card.receipt div.title {
+    font-weight: bolder; }
+  .wc-card.receipt div.subtitle {
+    font-weight: lighter; }
+  .wc-card.receipt tbody tr, .wc-card.receipt tfoot tr {
+    border-top: 1px solid #d2dde5; }
+  .wc-card.receipt tbody tr:first-child, .wc-card.receipt tfoot tr:first-child {
+    border-top-width: 2px; }
+  .wc-card.receipt tfoot td {
+    line-height: 2.25; }
+  .wc-card.receipt tfoot .total {
+    font-weight: bold; }
+  .wc-card.thumbnail img {
+    float: right;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    width: 100px; }
+  .wc-card.signin h1 {
+    margin: 10px 24px 16px 14px; }
+  .wc-card.error {
+    text-align: center; }
+    .wc-card.error .error-icon {
+      fill: #cccccc;
+      height: 56px;
+      margin-bottom: 2px;
+      margin-top: 20px;
+      padding-left: 12px; }
+    .wc-card.error .error-text {
+      color: #cccccc;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      text-align: inherit; }
+
+/* alternate chat sizes */
+.wc-message {
+  max-width: 91%; }
+
+.wc-card {
+  border: 1px solid #d2dde5;
+  width: 302px; }
+
+.wc-adaptive-card {
+  width: 318px; }
+
+.wc-wide .wc-card {
+  border: 1px solid #d2dde5;
+  width: 398px; }
+
+.wc-wide .wc-adaptive-card {
+  width: 414px; }
+
+.wc-narrow .wc-card {
+  border: 1px solid #d2dde5;
+  width: 198px; }
+
+.wc-narrow .wc-adaptive-card {
+  width: 214px; }
+
+/* adaptive card adjustments from wc-card */
+.wc-adaptive-card p {
+  margin-left: 0;
+  margin-right: 0; }
+
+/* list */
+.wc-list > .wc-card {
+  margin-top: 8px; }
+
+.wc-list > .wc-card:first-child {
+  margin-top: 0; }
+
+/* horizontal scroll */
+.wc-hscroll-outer {
+  /* allow horizontal scrolling but hide the scrollbar */
+  overflow: hidden; }
+
+.wc-hscroll {
+  /* allow horizontal scrolling but hide the scrollbar */
+  overflow-x: scroll;
+  overflow-y: hidden; }
+
+.wc-hscroll > ul {
+  white-space: nowrap; }
+
+.wc-hscroll > ul > li {
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal; }
+
+/* carousel */
+.wc-carousel {
+  position: relative; }
+  .wc-carousel button.scroll {
+    background-color: #d2dde5;
+    height: 28px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    width: 28px; }
+  .wc-carousel button.scroll:disabled {
+    display: none; }
+  .wc-carousel button.scroll:focus,
+  .wc-carousel button.scroll:hover {
+    background-color: #808c95; }
+  .wc-carousel button.scroll svg {
+    fill: #ffffff; }
+  .wc-carousel button.scroll.previous {
+    left: -16px; }
+  .wc-carousel button.scroll.next {
+    right: -16px; }
+  .wc-carousel .wc-hscroll > ul {
+    margin-left: -4px; }
+  .wc-carousel .wc-hscroll > ul > li {
+    padding: 0 4px; }
+  .wc-carousel .wc-hscroll > ul > li:last-child {
+    padding-right: 0; }
+  .wc-carousel li p {
+    min-height: 4em;
+    white-space: normal; }
+  .wc-carousel li .wc-adaptive-card p {
+    min-height: initial; }
+
+/* from me */
+.wc-message-from-me {
+  float: right;
+  margin-right: 6px; }
+
+.wc-message-from-me.wc-message-from {
+	/*名前非表示*/
+	display: none;
+  text-align: right; }
+
+.wc-message-from-me .wc-message-content {
+  background-color: #0078d7;
+  color: #ffffff; }
+
+.wc-message-from-me svg.wc-message-callout path {
+  fill: #0078d7; }
+
+.wc-message-from-me svg.wc-message-callout path.point-left {
+  display: none; }
+
+.wc-message-from-me svg.wc-message-callout {
+  right: -6px; }
+
+/* from bot */
+.wc-message-from-bot {
+  float: left;
+  margin-left: 8px; }
+
+.wc-message-from-bot .wc-message-content {
+  background-color: #eceff1;
+  color: #000000; }
+
+.wc-message-from-bot svg.wc-message-callout path {
+  fill: #eceff1; }
+
+.wc-message-from-bot svg.wc-message-callout path.point-right {
+  display: none; }
+
+.wc-message-from-bot svg.wc-message-callout {
+  left: -6px; }
+
+/* console */
+.wc-console {
+  border: 5px solid #dbdee1;
+  bottom: 0;
+  box-sizing: border-box;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  right: 0; }
+  .wc-console > .wc-upload,
+  .wc-console > .wc-textbox,
+  .wc-console > .wc-send,
+  .wc-console > .wc-mic {
+    position: absolute;
+    top: 0;
+    vertical-align: middle; }
+  .wc-console label, .wc-console button {
+    cursor: pointer;
+    display: inline-block;
+    height: 40px; }
+  .wc-console svg {
+    fill: #8a8a8a;
+    margin: 11px; }
+  .wc-console input[type=text],
+  .wc-console textarea {
+    border: none;
+    height: 100%;
+    outline: none;
+    padding: 0;
+    resize: none;
+    width: 100%; }
+  .wc-console.has-text .wc-send svg {
+    fill: #0078d7; }
+  .wc-console .wc-upload {
+    cursor: pointer;
+    position: relative; }
+    .wc-console .wc-upload input[type="file"] {
+      font-size: 0;
+      height: 0;
+      left: 0;
+      opacity: 0;
+      outline: 0;
+      position: absolute;
+      top: 0;
+      width: 0; }
+    .wc-console .wc-upload svg {
+      visibility : hidden;
+      height: 18px;
+      width: 26px; }
+  .wc-console .wc-send {
+    right: 0; }
+  .wc-console .wc-send.hidden {
+    visibility: hidden; }
+  .wc-console .wc-textbox {
+    bottom: 0;
+    left: 48px;
+    right: 49px; }
+    .wc-console .wc-textbox input {
+      background-color: transparent; }
+  .wc-console .wc-mic,
+  .wc-console .wc-send {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    right: 0; }
+    .wc-console .wc-mic.hidden,
+    .wc-console .wc-send.hidden {
+      visibility: hidden; }
+  .wc-console .wc-send svg {
+    height: 18px;
+    width: 27px; }
+  .wc-console .wc-mic.active path#micFilling {
+    fill: #4e3787; }
+  .wc-console .wc-mic.inactive path#micFilling {
+    visibility: hidden; }
+
+.wc-console.has-text .wc-send svg {
+  fill: #0078d7; }
+
+/* animation */
+.wc-typing {
+  background-image: url("data:image/gif;base64,R0lGODlhQAAYAPYBAOzv8evu8Ort7+fq7Ons7ujr7eXo6uTn6ebp6+Xn6ebo6uzu8OPm6OTm6OPm5+Tn6N/i4+Ll59/i5N7h4+Hk5uDj5evu7+Hk5d/h49PV18PFx7/BwsfJysXHyMLExdja3Nfa28vNz72/wL7Awc/S08TGyMDCw9TW2NbY2t3g4trd39bZ2szO0M7Q0dnb3djb3Nvd39ve4Nnc3dze4Nrc3t7g4tzf4dXX2d3f4d7h4tnc3tve383P0MrMzs7Q0sjKzNLU1s/R08jKy9DT1NfZ293g4efp68bIyby+v9bZ27q8vdHT1c7R0uvt78nLzM/R0tjb3ens7bO0tbS2t7GztK+xsrW3uK6vsLe4utfa3L/Awtzf4MnLzamqq5WWl66wsbm7vNrd3uXo6a2ur6yurp2en6KjpKusrZ+goKeoqers7urt7peXmIGBgYSEhHx8fJmamqipqnZ2doqLi8XHyY2NjpGSkpOUlJiYmZOTlI+QkJqbm4eIiJucnIuMjP///yH/C05FVFNDQVBFMi4wAwEAAAAh/wtYTVAgRGF0YVhNUDw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOklu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");
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 64px; }
+
+.wc-animate-scroll {
+  left: 0;
+  position: absolute;
+  transition: left .8s ease; }
+
+.wc-animate-scroll-rapid {
+  left: 0;
+  position: absolute;
+  transition: left .4s ease; }
+
+.wc-animate-scroll-near {
+  left: 0;
+  position: absolute;
+  transition: left .3s ease-in-out; }
+
+/* text formats */
+.format-markdown > p {
+  margin-bottom: 0px; }
+
+.format-markdown code {
+  white-space: pre-wrap; }
+
+.format-markdown + div {
+  margin-top: 8px; }
+
+.format-markdown ol {
+  padding-left: 30px;
+  /* numbers are right-aligned to the period */ }
+
+.format-markdown ul {
+  padding-left: 33px; }
+
+/* browser scrollbar customization */
+.wc-app ::-webkit-scrollbar {
+  width: 8px; }
+
+.wc-app ::-webkit-scrollbar * {
+  background-color: transparent; }
+
+.wc-app ::-webkit-scrollbar-thumb {
+  background-color: #dbdee1; }
+
+/* download button for Unknown media */
+.wc-icon-download {
+  display: inline-block;
+  height: 20px;
+  margin-left: 8px;
+  vertical-align: top;
+  width: 12px; }
+
+.wc-text-download {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: none; }
+
+.wc-message-from-bot a.wc-link-download:link, .wc-message-from-bot a.wc-link-download:visited {
+  color: #000000;
+  opacity: 1; }
+  .wc-message-from-bot a.wc-link-download:link .wc-icon-download, .wc-message-from-bot a.wc-link-download:visited .wc-icon-download {
+    background-image: url('data:image/svg+xml;utf8,<svg width="12" height="20" viewBox="0 0 12 20" xmlns="http://www.w3.org/2000/svg"><path d="M.435 20v-1.25h11.13V20H.435zM12 10.44l-6 6.113-6-6.114.87-.88 4.512 4.59V0h1.236v14.15l4.512-4.59.87.88z" fill="#000000" fill-rule="evenodd"/></svg>');
+    background-repeat: no-repeat; }
+
+.wc-message-from-bot a.wc-link-download:hover {
+  color: #0078d7;
+  opacity: 1; }
+  .wc-message-from-bot a.wc-link-download:hover .wc-icon-download {
+    background-image: url('data:image/svg+xml;utf8,<svg width="12" height="20" viewBox="0 0 12 20" xmlns="http://www.w3.org/2000/svg"><path d="M.435 20v-1.25h11.13V20H.435zM12 10.44l-6 6.113-6-6.114.87-.88 4.512 4.59V0h1.236v14.15l4.512-4.59.87.88z" fill="#0078d7" fill-rule="evenodd"/></svg>');
+    background-repeat: no-repeat; }
+
+.wc-message-from-bot a.wc-link-download:active {
+  color: #0078d7;
+  opacity: 0.8; }
+  .wc-message-from-bot a.wc-link-download:active .wc-icon-download {
+    background-image: url('data:image/svg+xml;utf8,<svg width="12" height="20" viewBox="0 0 12 20" xmlns="http://www.w3.org/2000/svg"><path d="M.435 20v-1.25h11.13V20H.435zM12 10.44l-6 6.113-6-6.114.87-.88 4.512 4.59V0h1.236v14.15l4.512-4.59.87.88z" fill="#0078d7" fill-rule="evenodd"/></svg>');
+    background-repeat: no-repeat; }
+
+.wc-message-from-me a.wc-link-download:link, .wc-message-from-me a.wc-link-download:visited {
+  color: #ffffff;
+  opacity: 1; }
+  .wc-message-from-me a.wc-link-download:link .wc-icon-download, .wc-message-from-me a.wc-link-download:visited .wc-icon-download {
+    background-image: url('data:image/svg+xml;utf8,<svg width="12" height="20" viewBox="0 0 12 20" xmlns="http://www.w3.org/2000/svg"><path d="M.435 20v-1.25h11.13V20H.435zM12 10.44l-6 6.113-6-6.114.87-.88 4.512 4.59V0h1.236v14.15l4.512-4.59.87.88z" fill="#ffffff" fill-rule="evenodd"/></svg>');
+    background-repeat: no-repeat; }
+
+.wc-message-from-me a.wc-link-download:hover {
+  color: #ffffff;
+  opacity: 0.8; }
+  .wc-message-from-me a.wc-link-download:hover .wc-icon-download {
+    background-image: url('data:image/svg+xml;utf8,<svg width="12" height="20" viewBox="0 0 12 20" xmlns="http://www.w3.org/2000/svg"><path d="M.435 20v-1.25h11.13V20H.435zM12 10.44l-6 6.113-6-6.114.87-.88 4.512 4.59V0h1.236v14.15l4.512-4.59.87.88z" fill="#ffffff" fill-rule="evenodd"/></svg>');
+    background-repeat: no-repeat; }
+
+.wc-message-from-me a.wc-link-download:active {
+  color: #ffffff;
+  opacity: 0.6; }
+  .wc-message-from-me a.wc-link-download:active .wc-icon-download {
+    background-image: url('data:image/svg+xml;utf8,<svg width="12" height="20" viewBox="0 0 12 20" xmlns="http://www.w3.org/2000/svg"><path d="M.435 20v-1.25h11.13V20H.435zM12 10.44l-6 6.113-6-6.114.87-.88 4.512 4.59V0h1.236v14.15l4.512-4.59.87.88z" fill="#ffffff" fill-rule="evenodd"/></svg>');
+    background-repeat: no-repeat; }
+
+
+/************************************************
+デザインカスタマイズ
+************************************************/
+
+body{
+	font-family: "メイリオ", sans-serif;
+	font-size:14px;
+	color:#1A1A1A;
+
+}
+
+body .wc-app{
+font-size:14px;
+}
+
+/*全体エリア・背景*/
+
+.wc-message-groups{
+	background-color: #EAEAEA;
+}
+
+/*スクロールバー削除*/
+.wc-message-groups{
+/*	overflow-y: hidden;*/
+}
+
+/*見出し*/
+.wc-header {
+/*	background-color: #77A600;*/
+	box-shadow:none;
+	padding:10px 12px 12px;
+	font-size:143%;
+	line-height:1.2;
+	height:48px;
+	display: none;
+}
+
+/*日時・補足テキスト*/
+
+.wc-message-from {
+    color: #4D4D4D;
+    font-size: 86%;
+}
+
+
+/*ユーザ側吹き出し*/
+.wc-message-from-me .wc-message-content {
+    background-color: #FFF;
+    color: #1A1A1A;
+    box-shadow: none;
+    border-radius: 12px;
+}
+.wc-message-from-me svg.wc-message-callout path {
+    fill: #FFF;
+}
+
+/*ボタン*/
+.wc-card button {
+
+    color: #FFF;
+    min-height: 32px;
+    width: 100%;
+    padding: 0 16px;
+    border-radius: 12px;
+}
+
+.wc-app button{
+	border-style:none;
+}
+
+.wc-card button:active,.wc-card button:hover {
+    border: none;
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+/*ボタン余白調整 影響があるため保留*/
+button.ac-pushButton{
+	margin-bottom:-2px;
+}
+button.ac-pushButton:last-child{
+	margin-bottom:0px;
+}
+
+/*吹き出し全般*/
+.wc-message-from-bot .wc-message-content {
+/*    background-color: #BBD380;*/
+    color: #1A1A1A;
+    border-radius: 12px;
+    box-shadow: none;
+    padding:10px;
+}
+
+.wc-message-from-bot .wc-message-content p {
+	letter-spacing: 0.5px;
+	line-height: 1.5;
+}
+
+/*ユーザ側吹き出し*/
+
+
+/*ホスト側吹き出し*/
+.wc-message-from-bot svg.wc-message-callout path {
+
+}
+
+/*回答候補回り*/
+
+.wc-list > .wc-card{
+		border-style: none;
+		background: none;
+}
+.ac-container{
+		padding:0px!important;
+}
+
+/*送信ボックス*/
+.wc-shellinput{
+	color:#1A1A1A;
+}
+
+.wc-console{
+	border:none;
+/*	background-color: #77A600;*/
+	height:68px;
+}
+
+.wc-console .wc-textbox input{
+	background-color: #FFF;
+}
+.wc-console input[type=text], .wc-console textarea{
+	height:37px;
+	background-color: #FFF;
+	border-radius: 12px;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	padding-left:10px;
+	width:calc( 100% - 10px );
+}
+
+.wc-console button{
+	height:50px;
+}
+
+/*送信ボタン*/
+.wc-send svg{
+	opacity:0;
+}
+.wc-send{
+position: relative;
+}
+.wc-send:focus{
+	outline: none;
+}
+.wc-send:after{
+	background:url( '../images/chatbot/send.png') no-repeat top left;
+position: absolute;
+content: "";
+top: 45%;
+left: 10px;
+width: 29px;
+height: 24px;
+}
+
+/*マイクアイコン一旦非表示*/
+.wc-upload svg{
+	display: none;
+}
+.wc-console .wc-textbox{
+	left:10px;
+}
+
+/*チャットボットの名前一旦非表示*/
+.wc-message-from.wc-message-from-bot {
+    display: none;
+}
+
+/*見出しに文字列を重ねて表示*/
+
+.wc-header:before{
+	position:absolute;
+	top:0;
+	left:0;
+	content:'いらっしゃいませ。\Aわからないことはなんでも聞いてね。';
+	white-space: pre;
+/*	background-color: #77A600;*/
+	box-shadow:none;
+	padding:10px 12px 12px;
+	font-size:100%;
+	line-height:1.2;
+	height:auto;
+}
+
+/*アイコン表示用サンプル*/
+
+/*ユーザ側アイコン*/
+.wc-message-wrapper.list.fukidshiR{
+padding-right:58px;
+position: relative;
+min-height:48px;
+}
+.userIcon{
+	position:absolute;
+	width:48px;
+	height:48px;
+	top:0px;
+	right:0px;
+}
+.userIcon img{
+	border-radius: 50%;
+}
+
+/*ホスト側アイコン*/
+
+.wc-message-wrapper.list.fukidshiL{
+padding-left:58px;
+position: relative;
+min-height:48px;
+}
+.hostIcon{
+	position:absolute;
+	width:48px;
+	height:48px;
+	top:0px;
+	left:0px;
+}
+.hostIcon img{
+	border-radius: 50%;
+}
+
+/*リンク色パターン*/
+.baseColor01 a:link, .baseColor01 a:hover, .baseColor01 a:visited,
+.baseColor02 a:link, .baseColor02 a:hover, .baseColor02 a:visited,
+.baseColor05 a:link, .baseColor05 a:hover, .baseColor05 a:visited,
+.baseColor06 a:link, .baseColor06 a:hover, .baseColor06 a:visited,
+.baseColor07 a:link, .baseColor07 a:hover, .baseColor07 a:visited
+ {
+color:#29ABE2;
+}
+
+.baseColor3 a:link, .baseColor3 a:hover,.baseColor3 a:visited,
+.baseColor4 a:link, .baseColor4 a:hover,.baseColor4 a:visited,
+.baseColor8 a:link, .baseColor8 a:hover,.baseColor8 a:visited,
+.baseColor9 a:link, .baseColor9 a:hover,.baseColor9 a:visited,
+.baseColor10 a:link, .baseColor10 a:hover,.baseColor10 a:visited
+{
+color:#FFF;
+}
+
+/***************************
+カラーパターン
+***************************/
+
+/*パターン１*/
+.baseColor01 .wc-header:before, .baseColor01 .wc-header ,.baseColor01 .wc-console, .baseColor01 .wc-card button {
+    background-color: #77A600;
+}
+.baseColor01 .wc-message-from-bot svg.wc-message-callout path {
+    fill: #BBD380;
+}
+
+.baseColor01 .wc-message-from-bot .wc-message-content {
+    background-color: #BBD380;
+  }
+
+.baseColor01 .ui-draggable .ui-dialog-titlebar{
+		background-color: #77A600;
+}
+
+/*ヘッダ カラーパターン1*/
+.baseColor01_cover .ui-widget-header{
+	background-color: #77A600;
+}
+
+/*続きを読む　カラーパターン１*/
+.baseColor01 .maintext .readmore{
+	background: rgba(187, 211, 128, 0) linear-gradient(180deg, rgba(187, 211, 128, 0.0), rgba(187, 211, 128, 1.0)) repeat scroll 0 0; repeat scroll 0 0;
+}
+.baseColor01 .maintext .readmore span{
+	background-color: #77A600;
+}
+
+
+
+/*パターン２*/
+
+.baseColor02 .wc-header:before, .baseColor02 .wc-header ,.baseColor02 .wc-console, .baseColor02 .wc-card button {
+	background-color: #26C9CB;
+}
+
+.baseColor02 .wc-message-from-bot svg.wc-message-callout path {
+    fill: #92e4e5;
+}
+
+.baseColor02 .wc-message-from-bot .wc-message-content {
+    background-color: #92e4e5;
+  }
+
+.baseColor02 .ui-draggable .ui-dialog-titlebar{
+		background-color: #26C9CB;
+}
+
+/*ヘッダ カラーパターン2*/
+.baseColor02_cover .ui-widget-header{
+	background-color: #26C9CB;
+}
+
+/*続きを読む　カラーパターン2*/
+.baseColor02 .maintext .readmore{
+	background: rgba(146, 228, 229, 0) linear-gradient(180deg, rgba(146, 228, 229, 0.0), rgba(146, 228, 229, 1.0)) repeat scroll 0 0; repeat scroll 0 0;
+}
+.baseColor02 .maintext .readmore span{
+	background-color: #26C9CB;
+}
+
+/*パターン3*/
+
+.baseColor03 .wc-header:before, .baseColor03 .wc-header ,.baseColor03 .wc-console, .baseColor03 .wc-card button {
+	background-color: #2B6ED4;
+}
+
+.baseColor03 .wc-message-from-bot svg.wc-message-callout path {
+    fill: #95b7ea;
+}
+
+.baseColor03 .wc-message-from-bot .wc-message-content {
+    background-color: #95b7ea;
+  }
+
+  .baseColor03 .ui-draggable .ui-dialog-titlebar{
+		background-color: #2B6ED4;
+}
+
+/*ヘッダ カラーパターン3*/
+.baseColor03_cover .ui-widget-header{
+		background-color: #2B6ED4;
+}
+
+
+/*続きを読む　カラーパターン3*/
+.baseColor03 .maintext .readmore{
+	background: rgba(149, 183, 234, 0) linear-gradient(180deg, rgba(149, 183, 234, 0.0), rgba(149, 183, 234, 1.0)) repeat scroll 0 0; repeat scroll 0 0;
+}
+.baseColor03 .maintext .readmore span{
+	background-color: #2B6ED4;
+}
+
+  /*パターン4*/
+
+.baseColor04 .wc-header:before, .baseColor04 .wc-header ,.baseColor04 .wc-console, .baseColor04 .wc-card button {
+	background-color: #846ADC;
+}
+
+.baseColor04 .wc-message-from-bot svg.wc-message-callout path {
+    fill: #c2b4ee;
+}
+
+.baseColor04 .wc-message-from-bot .wc-message-content {
+    background-color: #c2b4ee;
+  }
+
+  .baseColor04 .ui-draggable .ui-dialog-titlebar{
+	background-color: #846ADC;
+}
+
+/*ヘッダ カラーパターン4*/
+.baseColor04_cover .ui-widget-header{
+	background-color: #846ADC;
+}
+
+/*続きを読む　カラーパターン4*/
+.baseColor04 .maintext .readmore{
+	background: rgba(194, 180, 238, 0) linear-gradient(180deg, rgba(194, 180, 238, 0.0), rgba(194, 180, 238, 1.0)) repeat scroll 0 0; repeat scroll 0 0;
+}
+.baseColor04 .maintext .readmore span{
+	background-color: #846ADC;
+}
+
+  /*パターン5*/
+
+.baseColor05 .wc-header:before, .baseColor05 .wc-header ,.baseColor05 .wc-console, .baseColor05 .wc-card button {
+	background-color: #F871A0;
+}
+
+.baseColor05 .wc-message-from-bot svg.wc-message-callout path {
+    fill: #fcb8cf;
+}
+
+.baseColor05 .wc-message-from-bot .wc-message-content {
+    background-color: #fcb8cf;
+  }
+
+  .baseColor05 .ui-draggable .ui-dialog-titlebar{
+	background-color: #F871A0;
+}
+
+/*ヘッダ カラーパターン5*/
+.baseColor05_cover .ui-widget-header{
+	background-color: #F871A0;
+}
+
+/*続きを読む　カラーパターン5*/
+.baseColor05 .maintext .readmore{
+	background: rgba(252, 184, 207, 0) linear-gradient(180deg, rgba(252, 184, 207, 0.0), rgba(252, 184, 207, 1.0)) repeat scroll 0 0; repeat scroll 0 0;
+}
+.baseColor05 .maintext .readmore span{
+	background-color: #F871A0;
+}
+
+  /*パターン6*/
+
+.baseColor06 .wc-header:before, .baseColor06 .wc-header ,.baseColor06 .wc-console, .baseColor06 .wc-card button {
+	background-color: #FF953F;
+}
+
+.baseColor06 .wc-message-from-bot svg.wc-message-callout path {
+    fill: #ffca9f;
+}
+
+.baseColor06 .wc-message-from-bot .wc-message-content {
+    background-color: #ffca9f;
+  }
+
+.baseColor06 .ui-draggable .ui-dialog-titlebar{
+	background-color: #FF953F;
+}
+
+/*ヘッダ カラーパターン6*/
+.baseColor06_cover .ui-widget-header{
+	background-color: #FF953F;
+}
+
+/*続きを読む　カラーパターン6*/
+.baseColor06 .maintext .readmore{
+	background: rgba(255, 202, 159, 0) linear-gradient(180deg, rgba(255, 202, 159, 0.0), rgba(255, 202, 159, 1.0)) repeat scroll 0 0; repeat scroll 0 0;
+}
+.baseColor06 .maintext .readmore span{
+	background-color: #FF953F;
+}
+
+    /*パターン7*/
+
+.baseColor07 .wc-header:before, .baseColor07 .wc-header ,.baseColor07 .wc-console, .baseColor07 .wc-card button {
+	background-color: #9E9E9E;
+}
+
+.baseColor07 .wc-message-from-bot svg.wc-message-callout path {
+    fill: #cfcfcf;
+}
+
+.baseColor07 .wc-message-from-bot .wc-message-content {
+    background-color: #cfcfcf;
+  }
+
+.baseColor07 .ui-draggable .ui-dialog-titlebar{
+	background-color: #9E9E9E;
+}
+
+/*ヘッダ カラーパターン7*/
+.baseColor07_cover .ui-widget-header{
+	background-color: #9E9E9E;
+}
+
+/*続きを読む　カラーパターン7*/
+.baseColor07 .maintext .readmore{
+	background: rgba(207, 207, 207, 0) linear-gradient(180deg, rgba(207, 207, 207, 0.0), rgba(207, 207, 207, 1.0)) repeat scroll 0 0; repeat scroll 0 0;
+}
+.baseColor07 .maintext .readmore span{
+	background-color: #9E9E9E;
+}
+
+    /*パターン8*/
+
+.baseColor08 .wc-header:before, .baseColor08 .wc-header ,.baseColor08 .wc-console, .baseColor08 .wc-card button {
+	background-color: #603B35;
+}
+
+.baseColor08 .wc-message-from-bot svg.wc-message-callout path {
+    fill: #af9d9a;
+}
+
+.baseColor08 .wc-message-from-bot .wc-message-content {
+    background-color: #af9d9a;
+  }
+
+.baseColor08 .ui-draggable .ui-dialog-titlebar{
+	background-color: #603B35;
+}
+
+/*ヘッダ カラーパターン8*/
+.baseColor08_cover .ui-widget-header{
+	background-color: #603B35;
+}
+
+/*続きを読む　カラーパターン8*/
+.baseColor08 .maintext .readmore{
+	background: rgba(175, 157, 154, 0) linear-gradient(180deg, rgba(175, 157, 154, 0.0), rgba(175, 157, 154, 1.0)) repeat scroll 0 0; repeat scroll 0 0;
+}
+.baseColor08 .maintext .readmore span{
+	background-color: #603B35;
+}
+
+    /*パターン9*/
+
+.baseColor09 .wc-header:before, .baseColor09 .wc-header ,.baseColor09 .wc-console, .baseColor09 .wc-card button {
+	background-color: #004098;
+}
+
+.baseColor09 .wc-message-from-bot svg.wc-message-callout path {
+    fill: #809fcb;
+}
+
+.baseColor09 .wc-message-from-bot .wc-message-content {
+    background-color: #809fcb;
+  }
+
+.baseColor09 .ui-draggable .ui-dialog-titlebar{
+	background-color: #004098;
+}
+
+/*ヘッダ カラーパターン9*/
+.baseColor09_cover .ui-widget-header{
+	background-color: #004098;
+}
+
+/*続きを読む　カラーパターン9*/
+.baseColor09 .maintext .readmore{
+	background: rgba(128, 159, 203, 0) linear-gradient(180deg, rgba(128, 159, 203, 0.0), rgba(128, 159, 203, 1.0)) repeat scroll 0 0; repeat scroll 0 0;
+}
+.baseColor09 .maintext .readmore span{
+	background-color: #004098;
+}
+
+
+    /*パターン10*/
+
+.baseColor10 .wc-header:before, .baseColor10 .wc-header ,.baseColor10 .wc-console, .baseColor10 .wc-card button {
+	background-color: #3C3C3C;
+}
+
+.baseColor10 .wc-message-from-bot svg.wc-message-callout path {
+    fill: #9d9d9d;
+}
+
+.baseColor10 .wc-message-from-bot .wc-message-content {
+    background-color: #9d9d9d;
+  }
+
+.baseColor10 .ui-draggable .ui-dialog-titlebar{
+	background-color: #3C3C3C;
+}
+
+/*ヘッダ カラーパターン10*/
+.baseColor10_cover .ui-widget-header{
+	background-color: #3C3C3C
+}
+
+/*続きを読む　カラーパターン10*/
+.baseColor10 .maintext .readmore{
+	background: rgba(157, 157, 157, 0) linear-gradient(180deg, rgba(157, 157, 157, 0.0), rgba(157, 157, 157, 1.0)) repeat scroll 0 0; repeat scroll 0 0;
+}
+.baseColor10 .maintext .readmore span{
+	background-color: #3C3C3C;
+}
+
+    /*パターン11*/
+
+.baseColor11 .wc-header:before, .baseColor11 .wc-header ,.baseColor11 .wc-console, .baseColor11 .wc-card button {
+	background-color: #C4D700;
+}
+
+.baseColor11 .wc-message-from-bot svg.wc-message-callout path {
+    fill: #e2eb80;
+}
+
+.baseColor11 .wc-message-from-bot .wc-message-content {
+    background-color: #e2eb80;
+  }
+
+.baseColor11 .ui-draggable .ui-dialog-titlebar{
+	background-color: #C4D700;
+}
+
+/*ヘッダ カラーパターン11*/
+.baseColor11_cover .ui-widget-header{
+	background-color: #C4D700;
+}
+
+/*続きを読む　カラーパターン11*/
+.baseColor11 .maintext .readmore{
+	background: rgba(226, 235, 128, 0) linear-gradient(180deg, rgba(226, 235, 128, 0.0), rgba(226, 235, 128, 1.0)) repeat scroll 0 0; repeat scroll 0 0;
+}
+.baseColor11 .maintext .readmore span{
+	background-color: #C4D700;
+}
+
+/*ストライプパターン１　ストライプ*/
+.baseColor01Stripe .wc-console{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe01.png') repeat;
+}
+.baseColor01Stripe_cover .ui-widget-header{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe01.png') repeat;
+}
+
+/*ストライプパターン2　ストライプ*/
+.baseColor02Stripe .wc-console{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe02.png') repeat;
+}
+.baseColor02Stripe_cover .ui-widget-header{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe02.png') repeat;
+}
+
+/*ストライプパターン3　ストライプ*/
+.baseColor03Stripe .wc-console{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe03.png') repeat;
+}
+.baseColor03Stripe_cover .ui-widget-header{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe03.png') repeat;
+}
+
+/*ストライプパターン4　ストライプ*/
+.baseColor04Stripe .wc-console{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe04.png') repeat;
+}
+.baseColor04Stripe_cover .ui-widget-header{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe04.png') repeat;
+}
+
+/*ストライプパターン5　ストライプ*/
+.baseColor05Stripe .wc-console{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe05.png') repeat;
+}
+.baseColor05Stripe_cover .ui-widget-header{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe05.png') repeat;
+}
+
+/*ストライプパターン6　ストライプ*/
+.baseColor06Stripe .wc-console{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe06.png') repeat;
+}
+.baseColor06Stripe_cover .ui-widget-header{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe06.png') repeat;
+}
+
+/*ストライプパターン7　ストライプ*/
+.baseColor07Stripe .wc-console{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe07.png') repeat;
+}
+.baseColor07Stripe_cover .ui-widget-header{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe07.png') repeat;
+}
+
+/*ストライプパターン8　ストライプ*/
+.baseColor08Stripe .wc-console{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe08.png') repeat;
+}
+.baseColor08Stripe_cover .ui-widget-header{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe08.png') repeat;
+}
+
+/*ストライプパターン9　ストライプ*/
+.baseColor09Stripe .wc-console{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe09.png') repeat;
+}
+.baseColor09Stripe_cover .ui-widget-header{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe09.png') repeat;
+}
+
+/*ストライプパターン10　ストライプ*/
+.baseColor10Stripe .wc-console{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe10.png') repeat;
+}
+.baseColor10Stripe_cover .ui-widget-header{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe10.png') repeat;
+}
+
+/*ストライプパターン11　ストライプ*/
+.baseColor11Stripe .wc-console{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe11.png') repeat;
+}
+.baseColor11Stripe_cover .ui-widget-header{
+	background: url('../images/chatbot/pattern/stripe/bgPatternStripe11.png') repeat;
+}
+
+
+
+
+/*フロートウインドウ調整用*/
+
+/*スクロールバー削除*/
+.ui-dialog .ui-dialog-content{
+	overflow:hidden;
+}
+
+/*続きを読むボタン関連 テスト*/
+
+.maintext{
+	position:relative;
+	z-index:0;
+}
+
+.maintext.onhidden{
+	height:200px;
+	overflow-y:hidden;
+}
+
+.maintext .text{
+	padding:10px;
+}
+
+
+.maintext .readmore{
+	position:absolute;
+	bottom:0;
+	width:100%;
+	padding:20px 0;
+	text-align:center;
+
+	font-weight:bold;
+	cursor:pointer;
+	z-index:999;
+}
+
+.maintext .readmore span{
+	margin-top: 10px;
+	border-radius:12px;
+/*    border:2px solid #FFF;*/
+color:#FFF;
+	padding:5px 30px;
+/*	background-color:#dd4b39;*/
+}
+
+/*送信エリアのデフォルト要素調整*/
+#wc-upload-input{
+	display:none;
+}
+
+/*チャット内見出し修正*/
+.wc-message-content h3 {
+    font-size: 1em;
+    color: #1A1A1A;
+    font-weight: font-weight;
+    line-height: 1.38;
+}
+
+
+
+
+
+
